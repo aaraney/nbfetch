@@ -18,7 +18,7 @@ HERE = os.path.dirname(__file__)
 class NbFetchApp(ExtensionApp):
     # Name of the extension.
     name = "nbfetch"
-    default_url = "/"
+    default_url = "/nbfetch"
     load_other_extensions = True
     file_url_prefix = "/"
 
@@ -53,6 +53,8 @@ class NbFetchApp(ExtensionApp):
 
     def initialize_handlers(self):
         # Add a group with () to send to handler.
+        self.log.info("initialize_handlers")
+        self.log.info(f"{self.settings["base_url"]=}")
         base_url = url_path_join(self.settings["base_url"], "git-pull")
         hs_url = url_path_join(self.settings["base_url"], "hs-pull")
 
